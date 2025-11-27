@@ -4,10 +4,9 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitc970f1a266f43a2118de462ce989b839
+class ComposerStaticInitfc662b62a6d159bb1ee3eee54da40756
 {
     public static $files = array (
-        '0d59ee240a4cd96ddbb4ff164fccea4d' => __DIR__ . '/..' . '/symfony/polyfill-php73/bootstrap.php',
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
         '23c18046f52bef3eea034657bafda50f' => __DIR__ . '/..' . '/symfony/polyfill-php81/bootstrap.php',
         '3a37ebac017bc098e9a86b35401e7a68' => __DIR__ . '/..' . '/mongodb/mongodb/src/functions.php',
@@ -18,15 +17,14 @@ class ComposerStaticInitc970f1a266f43a2118de462ce989b839
         array (
             'Symfony\\Polyfill\\Php81\\' => 23,
             'Symfony\\Polyfill\\Php80\\' => 23,
-            'Symfony\\Polyfill\\Php73\\' => 23,
+        ),
+        'P' => 
+        array (
+            'Psr\\Log\\' => 8,
         ),
         'M' => 
         array (
             'MongoDB\\' => 8,
-        ),
-        'J' => 
-        array (
-            'Jean85\\' => 7,
         ),
     );
 
@@ -39,17 +37,13 @@ class ComposerStaticInitc970f1a266f43a2118de462ce989b839
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-php80',
         ),
-        'Symfony\\Polyfill\\Php73\\' => 
+        'Psr\\Log\\' => 
         array (
-            0 => __DIR__ . '/..' . '/symfony/polyfill-php73',
+            0 => __DIR__ . '/..' . '/psr/log/src',
         ),
         'MongoDB\\' => 
         array (
             0 => __DIR__ . '/..' . '/mongodb/mongodb/src',
-        ),
-        'Jean85\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/jean85/pretty-package-versions/src',
         ),
     );
 
@@ -57,7 +51,6 @@ class ComposerStaticInitc970f1a266f43a2118de462ce989b839
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'CURLStringFile' => __DIR__ . '/..' . '/symfony/polyfill-php81/Resources/stubs/CURLStringFile.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
-        'JsonException' => __DIR__ . '/..' . '/symfony/polyfill-php73/Resources/stubs/JsonException.php',
         'PhpToken' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/PhpToken.php',
         'ReturnTypeWillChange' => __DIR__ . '/..' . '/symfony/polyfill-php81/Resources/stubs/ReturnTypeWillChange.php',
         'Stringable' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Stringable.php',
@@ -68,9 +61,9 @@ class ComposerStaticInitc970f1a266f43a2118de462ce989b839
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitc970f1a266f43a2118de462ce989b839::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitc970f1a266f43a2118de462ce989b839::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInitc970f1a266f43a2118de462ce989b839::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitfc662b62a6d159bb1ee3eee54da40756::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitfc662b62a6d159bb1ee3eee54da40756::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInitfc662b62a6d159bb1ee3eee54da40756::$classMap;
 
         }, null, ClassLoader::class);
     }

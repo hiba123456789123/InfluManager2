@@ -2,13 +2,8 @@
 // On inclut le fichier autoload généré par Composer
 require_once __DIR__ . '/../vendor/autoload.php';
 
-// On importe la classe Client depuis la bibliothèque MongoDB
 use MongoDB\Client;
 
-/**
- * Classe Database
- * Gère la connexion à la base MongoDB
- */
 class Database {
     private static $instance = null; // Singleton
     private $client;  // Connexion au serveur MongoDB
@@ -17,14 +12,19 @@ class Database {
     // Constructeur privé
     private function __construct() {
         try {
-            // URI du serveur MongoDB local
-            $uri = "mongodb+srv://hibamejdoubi7_db_user:8GuWcsfdk8HuAVU1@cluster0.rnngzye.mongodb.net/influ_manager?retryWrites=true&w=majority&appName=Cluster0"
-;
-            //$this->client = new Client($uri);
-             $this->client = new Client($uri);
+            // Récupère l'URI depuis la variable d'environnement
+            $uri = getenv("MONGODB_URI");
+            if (!$uri) {
+                die("❌ Erreur : la variable d'environnement MONGODB_URI n'est pas définie !");
+            }
 
-            // ⚠️ Nom EXACT de ta base (vérifie dans Compass)
-            $this->db = $this->client->influ_manager;
+            // Connexion au client MongoDB
+            $this->client = new Client($uri);
+
+            // ⚠️ Nom exact de ta base (vérifie sur Atlas)
+            $dbName = getenv("MONGODB_DB") ?: "influ_manager"; // fallback si non défini
+            $this->db = $this->client->selectDatabase($dbName);
+
         } catch (Exception $e) {
             die("❌ Erreur de connexion MongoDB : " . $e->getMessage());
         }
